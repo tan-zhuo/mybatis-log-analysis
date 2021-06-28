@@ -1,0 +1,49 @@
+<idea-plugin>
+    <id>com.yanoer.mybatis_log_analysis</id>
+    <name>MyBatis Log Analysis</name>
+    <vendor email="tanzhuo@cqenekjwwgc.onexmail.com" url="https://yanuoer.com">Chongqing Yanuoer Technology Co., Ltd</vendor>
+    <version>1.0.2</version>
+
+    <description>
+        <![CDATA[
+        <p>MyBatis Log Analysis</p>
+        <ul>
+            <li>
+                <p>MyBatis Log Analysis is used when developing and debugging the sql log output of the MyBatis agent, select the corresponding sql log and include the parameter line, and the right mouse button will automatically complete the parameters to obtain a complete executable sql statement.</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p>MyBatis Log Analysis 是用于在开发调试MyBatis代理的sql日志输出时，选中对应sql日志并包含参数行，鼠标右键则自动补全参数得到完整可执行sql语句。</p>
+            </li>
+        </ul>
+        <p>Use demo (使用演示)：</p>
+        <img width="700" src="https://www.yanuoer.com/img/mybatis_log_analysis/demonstration.gif">
+        <p>Demo results (演示结果)：</p>
+        <img width="700" src="https://www.yanuoer.com/img/mybatis_log_analysis/demonstration.jpg">
+        ]]>
+    </description>
+
+    <idea-version since-build="171" until-build="211.*"/>
+    <depends>com.intellij.modules.lang</depends>
+    <extensions defaultExtensionNs="com.intellij"></extensions>
+
+    <actions>
+        <action id="com.yanuoer.action.PlugInformationMenuAction"
+                class="com.yanuoer.action.PlugInformationMenuAction"
+                text="MyBatis Log Analysis About"
+                description="MyBatis Log Analysis About"
+                icon="/static/icons/mybatis_log_analysis_info_icon.png">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+
+        <action id="com.yanuoer.action.MyBatisLogAnalysisAction"
+                class="com.yanuoer.action.MyBatisLogAnalysisAction"
+                text="MyBatis Log Analysis"
+                description="MyBatis Log Analysis"
+                icon="/static/icons/mybatis_log_analysis_info_icon.png">
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>

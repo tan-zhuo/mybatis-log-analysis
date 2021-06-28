@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.21'
+}
+
+group 'com.yanuoer'
+version '1.0.2'
+
+compileJava.options.encoding 'UTF-8'
+compileTestJava.options.encoding 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.alibaba', name: 'druid', version: '1.1.23'
+}
+
+intellij {
+    version '2017.1'
+    pluginName = 'MyBatisLogAnalysis'
+    intellij.updateSinceUntilBuild false
+    downloadSources = false
+}
+
+patchPluginXml {
+    changeNotes """ <ul>
+                    <li>
+                        <p>version 1.0.2 provides the most basic parameter auto-fill function</p>
+                        <p>1.0.2版本提供了最基础的参数自动补全功能</p>
+                    </li>
+                    </ul>"""
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
