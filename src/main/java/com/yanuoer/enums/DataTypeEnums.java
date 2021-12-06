@@ -22,9 +22,9 @@ public enum DataTypeEnums {
 	Timestamp("(Timestamp)", java.sql.Timestamp.class),
 	Time("(Time)", java.sql.Time.class);
 
-	private String dataType;
+	private final String dataType;
 
-	private Class dataObjClass;
+	private final Class<?> dataObjClass;
 
 	public static Object getDataType(String data) {
 		DataTypeEnums[] typeEnums = DataTypeEnums.values();
@@ -76,7 +76,7 @@ public enum DataTypeEnums {
 	}
 
 
-	public Class getDataObjClass() {
+	public Class<?> getDataObjClass() {
 		return dataObjClass;
 	}
 
@@ -84,7 +84,7 @@ public enum DataTypeEnums {
 		return dataType;
 	}
 
-	private DataTypeEnums(String dataType, Class dataObjClass) {
+	private DataTypeEnums(String dataType, Class<?> dataObjClass) {
 		this.dataType = dataType;
 		this.dataObjClass = dataObjClass;
 	}
