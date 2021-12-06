@@ -84,7 +84,7 @@ public enum DataTypeEnums {
 		return dataType;
 	}
 
-	private DataTypeEnums(String dataType, Class<?> dataObjClass) {
+	DataTypeEnums(String dataType, Class<?> dataObjClass) {
 		this.dataType = dataType;
 		this.dataObjClass = dataObjClass;
 	}
