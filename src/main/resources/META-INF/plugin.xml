@@ -26,13 +26,13 @@
 
     <idea-version since-build="171" until-build="212.*"/>
     <depends>com.intellij.modules.lang</depends>
-    <extensions defaultExtensionNs="com.intellij"></extensions>
+    <extensions defaultExtensionNs="com.intellij"/>
 
     <actions>
         <action id="com.yanuoer.action.PlugInformationMenuAction"
                 class="com.yanuoer.action.PlugInformationMenuAction"
                 text="MyBatis Log Analysis About"
-                description="MyBatis Log Analysis About"
+                description="MyBatis log analysis about"
                 icon="/static/icons/mybatis_log_analysis_info_icon.png">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>
@@ -40,7 +40,7 @@
         <action id="com.yanuoer.action.MyBatisLogAnalysisAction"
                 class="com.yanuoer.action.MyBatisLogAnalysisAction"
                 text="MyBatis Log Analysis"
-                description="MyBatis Log Analysis"
+                description="MyBatis log analysis"
                 icon="/static/icons/mybatis_log_analysis_info_icon.png">
             <add-to-group group-id="ConsoleEditorPopupMenu" anchor="last"/>
         </action>
