@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.yanuoer'
-version '1.0.2'
+version '1.0.3'
 
 compileJava.options.encoding 'UTF-8'
 compileTestJava.options.encoding 'UTF-8'
@@ -28,8 +28,8 @@ intellij {
 patchPluginXml {
     changeNotes """ <ul>
                     <li>
-                        <p>version 1.0.2 provides the most basic parameter auto-fill function</p>
-                        <p>1.0.2版本提供了最基础的参数自动补全功能</p>
+                        <p>version 1.0.3 provides the most basic parameter auto-fill function</p>
+                        <p>1.0.3版本提供了最基础的参数自动补全功能</p>
                     </li>
                     </ul>"""
 }

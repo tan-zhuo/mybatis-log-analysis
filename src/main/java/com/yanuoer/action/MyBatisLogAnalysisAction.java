@@ -19,7 +19,7 @@ import java.util.List;
  * mybatis日志解析
  *
  * @author tanzhuo
- * @version 1.0.2
+ * @version 1.0.3
  */
 public class MyBatisLogAnalysisAction extends AnAction {
 
