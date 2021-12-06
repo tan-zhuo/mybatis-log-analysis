@@ -18,7 +18,8 @@ import java.util.List;
 /**
  * mybatis日志解析
  *
- * @author 谭卓
+ * @author tanzhuo
+ * @version 1.0.2
  */
 public class MyBatisLogAnalysisAction extends AnAction {
 
@@ -32,7 +33,6 @@ public class MyBatisLogAnalysisAction extends AnAction {
 	 * 解析日志 填充sql语句的参数 输出结果
 	 *
 	 * @param event 触发事件
-	 * @author 谭卓
 	 */
 	@Override
 	public void actionPerformed(@NotNull AnActionEvent event) {

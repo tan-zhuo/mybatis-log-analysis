@@ -3,9 +3,8 @@ package com.yanuoer.enums;
 /**
  * mybatis日志数据类型解析枚举
  *
- * @author 谭卓
+ * @author tanzhuo
  * @version 1.0.2
- * @Date 2020-8-11 16:19:06
  */
 public enum DataTypeEnums {
 
