@@ -4,19 +4,15 @@ import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.sql.ast.SQLStatement;
 import com.alibaba.druid.util.JdbcConstants;
 import com.intellij.execution.impl.ConsoleViewImpl;
-import com.intellij.execution.testframework.TestsUIUtil;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.ui.Messages;
-import com.intellij.ui.components.JBPanelWithEmptyText;
 import com.intellij.ui.components.JBTextField;
 import com.yanuoer.enums.DataTypeEnums;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
