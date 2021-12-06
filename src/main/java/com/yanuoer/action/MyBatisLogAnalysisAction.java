@@ -8,13 +8,16 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.ui.Messages;
-import com.intellij.ui.JBColor;
-import com.intellij.ui.components.JBTextField;
+import com.intellij.openapi.ui.DialogBuilder;
+import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.ui.InsertPathAction;
+import com.intellij.ui.ScrollPaneFactory;
 import com.intellij.util.execution.ParametersListUtil;
+import com.intellij.util.ui.UIUtil;
 import com.yanuoer.enums.DataTypeEnums;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,20 +62,34 @@ public class MyBatisLogAnalysisAction extends AnAction {
         String parametersStr = "Parameters: ";
         if (!sqlLog.contains(preparingStr) || !parametersLog.contains(parametersStr)) return;
         //解析sql
-        String preparatorySql = sqlLog.substring(sqlLog.indexOf(preparingStr) + preparingStr.length());
+        String completeSql = sqlLog.substring(sqlLog.indexOf(preparingStr) + preparingStr.length());
         String preparatoryParameters = parametersLog.substring(parametersLog.indexOf(parametersStr) + parametersStr.length());
         if (preparatoryParameters.length() != 0) {
             String[] parameters = preparatoryParameters.split(", ");
             List<Object> parameterObjectList = getObjectList(parameters);
-            List<SQLStatement> sqlStatementList = SQLUtils.parseStatements(preparatorySql, JdbcConstants.MYSQL);
-            preparatorySql = SQLUtils.toSQLString(sqlStatementList, JdbcConstants.MYSQL, parameterObjectList);
+            List<SQLStatement> sqlStatementList = SQLUtils.parseStatements(completeSql, JdbcConstants.MYSQL);
+            completeSql = SQLUtils.toSQLString(sqlStatementList, JdbcConstants.MYSQL, parameterObjectList);
         }
-        preparatorySql = SQLUtils.format(preparatorySql, JdbcConstants.MYSQL, SQLUtils.DEFAULT_FORMAT_OPTION);
-        JBTextField textField = new JBTextField(preparatorySql);
-        Font font = new Font("JetBrains Mono", Font.PLAIN, 14);
-        textField.setFont(font);
-        textField.setBackground(JBColor.WHITE);
-        Messages.showTextAreaDialog(textField, TITLE, "noDimensionServiceKey", ParametersListUtil.COLON_LINE_PARSER, ParametersListUtil.COLON_LINE_JOINER);
+        openMessages(SQLUtils.format(completeSql, JdbcConstants.MYSQL, SQLUtils.DEFAULT_FORMAT_OPTION));
+    }
+
+
+    public void openMessages(String sql) {
+        JTextArea textArea = new JTextArea(10, 50);
+        UIUtil.addUndoRedoActions(textArea);
+        textArea.setWrapStyleWord(true);
+        textArea.setLineWrap(true);
+        Font font = new Font("JetBrains Mono", Font.BOLD, 14);
+        textArea.setFont(font);
+        textArea.setText(sql.replaceAll("\n\t\t", "\n").replaceAll("\n\t", "\n"));
+        DialogBuilder builder = new DialogBuilder();
+        builder.setDimensionServiceKey("");
+        builder.setCenterPanel(ScrollPaneFactory.createScrollPane(textArea));
+        builder.setPreferredFocusComponent(textArea);
+        builder.setTitle(TITLE);
+        builder.addOkAction();
+        builder.addCancelAction();
+        builder.show();
     }
 
     private List<Object> getObjectList(String[] parameters) {
