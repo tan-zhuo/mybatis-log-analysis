@@ -9,10 +9,12 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataContext;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.ui.Messages;
+import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBTextField;
 import com.yanuoer.enums.DataTypeEnums;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +67,11 @@ public class MyBatisLogAnalysisAction extends AnAction {
             preparatorySql = SQLUtils.toSQLString(sqlStatementList, JdbcConstants.MYSQL, parameterObjectList);
         }
         preparatorySql = SQLUtils.format(preparatorySql, JdbcConstants.MYSQL, SQLUtils.DEFAULT_FORMAT_OPTION);
-        Messages.showTextAreaDialog(new JBTextField(preparatorySql), TITLE, "");
+        JBTextField textField = new JBTextField(preparatorySql);
+        Font font = new Font("JetBrains Mono", Font.PLAIN, 14);
+        textField.setFont(font);
+        textField.setBackground(JBColor.WHITE);
+        Messages.showTextAreaDialog(textField, TITLE, "noDimensionServiceKey", null, null);
     }
 
     private List<Object> getObjectList(String[] parameters) {
