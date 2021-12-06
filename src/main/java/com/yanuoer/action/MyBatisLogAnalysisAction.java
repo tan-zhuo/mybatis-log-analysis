@@ -11,6 +11,7 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.ui.JBColor;
 import com.intellij.ui.components.JBTextField;
+import com.intellij.util.execution.ParametersListUtil;
 import com.yanuoer.enums.DataTypeEnums;
 import org.jetbrains.annotations.NotNull;
 
@@ -71,7 +72,7 @@ public class MyBatisLogAnalysisAction extends AnAction {
         Font font = new Font("JetBrains Mono", Font.PLAIN, 14);
         textField.setFont(font);
         textField.setBackground(JBColor.WHITE);
-        Messages.showTextAreaDialog(textField, TITLE, "noDimensionServiceKey", null, null);
+        Messages.showTextAreaDialog(textField, TITLE, "noDimensionServiceKey", ParametersListUtil.COLON_LINE_PARSER, ParametersListUtil.COLON_LINE_JOINER);
     }
 
     private List<Object> getObjectList(String[] parameters) {
