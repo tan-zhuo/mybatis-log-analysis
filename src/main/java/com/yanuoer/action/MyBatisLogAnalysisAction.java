@@ -79,7 +79,7 @@ public class MyBatisLogAnalysisAction extends AnAction {
         UIUtil.addUndoRedoActions(textArea);
         textArea.setWrapStyleWord(true);
         textArea.setLineWrap(true);
-        Font font = new Font("JetBrains Mono", Font.BOLD, 14);
+        Font font = new Font(null, Font.BOLD, 14);
         textArea.setFont(font);
         textArea.setText(sql.replaceAll("\n\t\t", "\n").replaceAll("\n\t", "\n"));
         DialogBuilder builder = new DialogBuilder();
