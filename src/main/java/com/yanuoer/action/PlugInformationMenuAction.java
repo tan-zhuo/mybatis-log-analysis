@@ -14,7 +14,7 @@ public class PlugInformationMenuAction extends AnAction {
 
 	@Override
 	public void actionPerformed(AnActionEvent event) {
-		Messages.showMessageDialog("welcome to use mybatis log analysis plugin, this plugin is permanently free.", "welcome", Messages.getInformationIcon());
+		Messages.showMessageDialog("welcome to use mybatis log analysis plugin, this plugin is permanently free.", "Welcome", Messages.getInformationIcon());
 	}
 
 
