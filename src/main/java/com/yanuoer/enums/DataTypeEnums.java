@@ -4,7 +4,7 @@ package com.yanuoer.enums;
  * mybatis日志数据类型解析枚举
  *
  * @author tanzhuo
- * @version 1.0.3
+ * @version 1.0.4
  */
 public enum DataTypeEnums {
 

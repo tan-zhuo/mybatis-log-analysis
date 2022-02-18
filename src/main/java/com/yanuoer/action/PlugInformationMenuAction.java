@@ -8,7 +8,7 @@ import com.intellij.openapi.ui.Messages;
  * mybatis日志解析信息介绍
  *
  * @author tanzhuo
- * @version 1.0.3
+ * @version 1.0.4
  */
 public class PlugInformationMenuAction extends AnAction {
 
