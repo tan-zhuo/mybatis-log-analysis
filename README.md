@@ -1,4 +1,4 @@
-![mybatis-log-analysis logo](https://www.yanuoer.com/img/mybatis_log_analysis/logo.jpg)
+![mybatis-log-analysis logo](https://plugins.jetbrains.com/files/14958/148907/icon/pluginIcon.svg)
 
 ## mybatis-log-analysis
 

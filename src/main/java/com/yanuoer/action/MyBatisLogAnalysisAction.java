@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,21 +44,33 @@ public class MyBatisLogAnalysisAction extends AnAction {
         //获取事件发生源 并拿到历史日志输出文本编辑框
         DataContext dataContext = event.getDataContext();
         ConsoleViewImpl consoleView = (ConsoleViewImpl) dataContext.getData("consoleView");
-        if (consoleView == null) return;
+        if (consoleView == null) {
+            return;
+        }
         Editor editor = consoleView.getEditor();
-        if (editor == null) return;
+        if (editor == null) {
+            return;
+        }
         //获取选中文本
         String mybatisLogAll = editor.getSelectionModel().getSelectedText();
-        if (mybatisLogAll == null || "".equals(mybatisLogAll) || !mybatisLogAll.contains("\n")) return;
+        if (mybatisLogAll == null || "".equals(mybatisLogAll) || !mybatisLogAll.contains("\n")) {
+            return;
+        }
         String[] mybatisLogs = mybatisLogAll.split("\n");
         //不满足日志规则 选中行数不符合指定行
-        if (mybatisLogs.length != 2) return;
+        if (mybatisLogs.length != 2) {
+            return;
+        }
         String sqlLog = mybatisLogs[0];
         String parametersLog = mybatisLogs[1];
-        if ("".equals(sqlLog) || "".equals(parametersLog)) return;
+        if ("".equals(sqlLog) || "".equals(parametersLog)) {
+            return;
+        }
         String preparingStr = "Preparing: ";
         String parametersStr = "Parameters: ";
-        if (!sqlLog.contains(preparingStr) || !parametersLog.contains(parametersStr)) return;
+        if (!sqlLog.contains(preparingStr) || !parametersLog.contains(parametersStr)) {
+            return;
+        }
         //解析sql
         String completeSql = sqlLog.substring(sqlLog.indexOf(preparingStr) + preparingStr.length());
         String preparatoryParameters = parametersLog.substring(parametersLog.indexOf(parametersStr) + parametersStr.length());
@@ -92,7 +105,12 @@ public class MyBatisLogAnalysisAction extends AnAction {
     private List<Object> getObjectList(String[] parameters) {
         List<Object> parameterObjectList = new ArrayList<>(parameters.length);
         for (String parameter : parameters) {
-            parameterObjectList.add(DataTypeEnums.getDataType(parameter));
+            try {
+                parameterObjectList.add(DataTypeEnums.getDataType(parameter));
+            } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
+                     IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
         }
         return parameterObjectList;
     }
