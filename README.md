@@ -9,7 +9,4 @@
 > 使用ali-druid.jar中的sql解析模块完成功能
 
 使用方法：  
-![mybatis-log-analysis demo](https://www.yanuoer.com/img/mybatis_log_analysis/demonstration.gif)
-
-最终效果：
-![mybatis-log-analysis demo](https://www.yanuoer.com/img/mybatis_log_analysis/demonstration.jpg)
+![mybatis-log-analysis demo](https://yanuoer.oss-cn-beijing.aliyuncs.com/my-batis-log/demonstration.gif)
