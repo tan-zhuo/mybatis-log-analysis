@@ -42,7 +42,7 @@ public enum DataTypeEnums {
 
     public static Object getDataType(String data) throws Exception {
         for (DataTypeEnums enums : DataTypeEnums.values()) {
-            if (!enums.getDataType().contains(data)) {
+            if (!data.contains(enums.getDataType())) {
                 continue;
             }
             // 去掉参数标注内容，准备参数转换

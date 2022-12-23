@@ -24,7 +24,7 @@
         ]]>
     </description>
 
-    <idea-version since-build="171" until-build="213.*"/>
+    <idea-version since-build="171" until-build="222.*"/>
     <depends>com.intellij.modules.lang</depends>
     <extensions defaultExtensionNs="com.intellij"/>
 
