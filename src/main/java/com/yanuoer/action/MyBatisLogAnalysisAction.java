@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,8 +106,7 @@ public class MyBatisLogAnalysisAction extends AnAction {
         for (String parameter : parameters) {
             try {
                 parameterObjectList.add(DataTypeEnums.getDataType(parameter));
-            } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
-                     IllegalAccessException e) {
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }

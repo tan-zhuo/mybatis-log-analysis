@@ -40,7 +40,7 @@ public enum DataTypeEnums {
 
     private final Class<?> dataObjClass;
 
-    public static Object getDataType(String data) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static Object getDataType(String data) throws Exception {
         for (DataTypeEnums enums : DataTypeEnums.values()) {
             if (!enums.getDataType().contains(data)) {
                 continue;
